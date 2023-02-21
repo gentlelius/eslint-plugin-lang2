@@ -1,6 +1,6 @@
 {
-  "name": "eslint-plugin-lang",
-  "version": "0.2.4",
+  "name": "eslint-plugin-internationality",
+  "version": "0.0.1",
   "description": "ESLint plugin for i18n",
   "keywords": [
     "eslint",
@@ -11,7 +11,7 @@
     "internationalization",
     "localization"
   ],
-  "author": "edvardchen",
+  "author": "itlangit",
   "main": "lib/index.js",
   "scripts": {
     "preversion": "npm run test",
@@ -47,5 +47,5 @@
       "pre-commit": "lint-staged"
     }
   },
-  "license": "ISC"
+  "license": "MIT"
 }
