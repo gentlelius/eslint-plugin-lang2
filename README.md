@@ -1,20 +1,20 @@
-# eslint-plugin-i18next
+# eslint-plugin-lang
 
 ESLint plugin for i18n
 
 ## Installation
 
 ```bash
-npm install eslint-plugin-i18next --save-dev
+npm install eslint-plugin-lang --save-dev
 ```
 
 ## Usage
 
-Add `i18next` to the plugins section of your `.eslintrc` configuration file.
+Add `lang` to the plugins section of your `.eslintrc` configuration file.
 
 ```json
 {
-  "plugins": ["i18next"]
+  "plugins": ["lang"]
 }
 ```
 
@@ -23,7 +23,7 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
   "rules": {
-    "i18next/no-literal-string": 2
+    "lang/no-literal-string": 2
   }
 }
 ```
@@ -32,16 +32,16 @@ or
 
 ```json
 {
-  "extends": ["plugin:i18next/recommended"]
+  "extends": ["plugin:lang/recommended"]
 }
 ```
 
 ## Rule `no-literal-string`
 
 This rule aims to avoid developers to display literal string to users
-in those projects which need to support [multi-language](https://www.i18next.com/).
+in those projects which need to support [multi-language](https://www.lang.com/).
 
-> <span style="color: lightcoral">Note:</span> Disable auto-fix because key in the call `i18next.t(key)` ussally was not the same as the literal
+> <span style="color: lightcoral">Note:</span> Disable auto-fix because key in the call `lang.t(key)` ussally was not the same as the literal
 
 ### Rule Details
 
@@ -50,14 +50,14 @@ in those projects which need to support [multi-language](https://www.i18next.com
 Examples of **incorrect** code for this rule:
 
 ```js
-/*eslint i18next/no-literal-string: "error"*/
+/*eslint lang/no-literal-string: "error"*/
 const a = 'foo';
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-/*eslint i18next/no-literal-string: "error"*/
+/*eslint lang/no-literal-string: "error"*/
 // safe to assign string to const variables whose name are UPPER_CASE
 var FOO = 'foo';
 
@@ -73,26 +73,26 @@ var foo = 'FOO';
 
 #### i18n
 
-This rule allows to call i18next translate function.
+This rule allows to call lang translate function.
 
 **Correct** code:
 
 ```js
-/*eslint i18next/no-literal-string: "error"*/
-var bar = i18next.t('bar');
+/*eslint lang/no-literal-string: "error"*/
+var bar = lang.t('bar');
 var bar2 = i18n.t('bar');
 ```
 
 Maybe you use other internationalization libraries
-not [i18next](https://www.i18next.com/). You can use like this:
+not [lang](https://www.lang.com/). You can use like this:
 
 ```js
-/*eslint i18next/no-literal-string: ["error", { "ignoreCallee": ["yourI18n"] }]*/
+/*eslint lang/no-literal-string: ["error", { "ignoreCallee": ["yourI18n"] }]*/
 const bar = yourI18n('bar');
 
 // or
 
-/*eslint i18next/no-literal-string: ["error", { "ignoreCallee": ["yourI18n.method"] }]*/
+/*eslint lang/no-literal-string: ["error", { "ignoreCallee": ["yourI18n.method"] }]*/
 const bar = yourI18n.method('bar');
 ```
 
@@ -104,10 +104,10 @@ All literal strings in html template are typically mistakes. For JSX example:
 <div>foo</div>
 ```
 
-They should be translated by [i18next translation api](https://www.i18next.com/):
+They should be translated by [lang translation api](https://www.lang.com/):
 
 ```HTML
-<div>{i18next.t('foo')}</div>
+<div>{lang.t('foo')}</div>
 ```
 
 Same for [Vue template](https://vuejs.org/v2/guide/syntax.html):
@@ -120,7 +120,7 @@ Same for [Vue template](https://vuejs.org/v2/guide/syntax.html):
 
 <!-- correct -->
 <template>
-  {{ i18next.t('foo') }}
+  {{ lang.t('foo') }}
 </template>
 ```
 
@@ -130,10 +130,10 @@ Click on them to see details.
 
 <details>
 <summary>
-react-i18next
+react-lang
 </summary>
 
-This plugin are compatible with [react-i18next](https://react.i18next.com/)
+This plugin are compatible with [react-lang](https://react.lang.com/)
 
 ```tsx
 // correct
@@ -282,7 +282,7 @@ const foo = 'bar';
 // incorrect
 <div>foo</div>
 
-/*eslint i18next/no-literal-string: ["error", {"onlyAttribute": ["foo"]}]*/
+/*eslint lang/no-literal-string: ["error", {"onlyAttribute": ["foo"]}]*/
 // incorrect
 <div foo="foo"></div>
 ```
@@ -295,7 +295,7 @@ literal strings that match one of regexp paterns.
 Examples of correct code for the `{ "ignore": ['foo'] }` option:
 
 ```js
-/*eslint i18next/no-literal-string: ["error", {"ignore": ["foo"]}]*/
+/*eslint lang/no-literal-string: ["error", {"ignore": ["foo"]}]*/
 const a = 'afoo';
 ```
 
@@ -307,7 +307,7 @@ function calls whose names match one of regexp patterns.
 Examples of correct code for the `{ "ignoreCallee": ["foo"] }` option:
 
 ```js
-/*eslint i18next/no-literal-string: ["error", { "ignoreCallee": ["foo"] }]*/
+/*eslint lang/no-literal-string: ["error", { "ignoreCallee": ["foo"] }]*/
 const bar = foo('bar');
 ```
 
@@ -318,7 +318,7 @@ The `ignoreAttribute` option specifies exceptions not to check for JSX attribute
 Examples of correct code for the `{ "ignoreAttribute": ["foo"] }` option:
 
 ```jsx
-/*eslint i18next/no-literal-string: ["error", { "ignoreAttribute": ["foo"] }]*/
+/*eslint lang/no-literal-string: ["error", { "ignoreAttribute": ["foo"] }]*/
 const element = <div foo="bar" />;
 ```
 
@@ -329,7 +329,7 @@ The `ignoreProperty` option specifies exceptions not to check for object propert
 Examples of correct code for the `{ "ignoreProperty": ["foo"] }` option:
 
 ```jsx
-/*eslint i18next/no-literal-string: ["error", { "ignoreProperty": ["foo"] }]*/
+/*eslint lang/no-literal-string: ["error", { "ignoreProperty": ["foo"] }]*/
 const a = { foo: 'bar' };
 ```
 
@@ -340,7 +340,7 @@ The `ignoreComponent` option specifies exceptions not to check for string litera
 Examples of correct code for the `{ "ignoreComponent": ["Icon"] }` option:
 
 ```jsx
-/*eslint i18next/no-literal-string: ["error", { "ignoreComponent": ["Icon"] }]*/
+/*eslint lang/no-literal-string: ["error", { "ignoreComponent": ["Icon"] }]*/
 <Icon>arrow<Icon/>
 ```
 
@@ -349,7 +349,7 @@ Examples of correct code for the `{ "ignoreComponent": ["Icon"] }` option:
 Indicate whether to validate [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) or not. Default `false`
 
 ```js
-/*eslint i18next/no-literal-string: ["error", { "validateTemplate": true }]*/
+/*eslint lang/no-literal-string: ["error", { "validateTemplate": true }]*/
 // incorrect
 var foo = `hello world`;
 ```

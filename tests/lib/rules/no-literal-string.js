@@ -87,7 +87,7 @@ ruleTester.run("no-literal-string", rule, {
     // JSX
     { code: '<div className="primary"></div>' },
     { code: '<div className={a ? "active": "inactive"}></div>' },
-    { code: '<div>{i18next.t("foo")}</div>' },
+    { code: '<div>{lang.t("foo")}</div>' },
     { code: '<svg viewBox="0 0 20 40"></svg>' },
     { code: '<line x1="0" y1="0" x2="10" y2="20" />' },
     { code: '<path d="M10 10" />' },
@@ -150,7 +150,7 @@ ruleTester.run("no-literal-string", rule, {
       options: [{ validateTemplate: true }],
       errors
     },
-    { code: 'i18nextXt("taa");', errors },
+    { code: 'langXt("taa");', errors },
     { code: 'a + "b"', errors },
     {
       code: "switch(a){ case 'a': var a ='b'; break; default: break;}",
@@ -202,7 +202,7 @@ const vueTester = new RuleTester({
 });
 
 vueTester.run("no-literal-string", rule, {
-  valid: [{ code: '<template>{{ i18next.t("abc") }}</template>' }],
+  valid: [{ code: '<template>{{ lang.t("abc") }}</template>' }],
   invalid: [
     {
       code: '<template>{{ a("abc") }}</template>',

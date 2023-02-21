@@ -1,7 +1,7 @@
 # disallow literal string (no-literal-string)
 
 This rule aims to avoid developers to display literal string to users
-in those projects which need to support [multi-language](https://www.i18next.com/).
+in those projects which need to support [multi-language](https://www.lang.com/).
 
 ## Rule Details
 
@@ -10,14 +10,14 @@ It will find out all literal strings and validate them.
 Examples of **incorrect** code for this rule:
 
 ```js
-/*eslint i18next/no-literal-string: "error"*/
+/*eslint lang/no-literal-string: "error"*/
 const a = 'foo';
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-/*eslint i18next/no-literal-string: "error"*/
+/*eslint lang/no-literal-string: "error"*/
 // safe to assign string to const variables whose name are UPPER_CASE
 var FOO = 'foo';
 
@@ -33,13 +33,13 @@ var foo = 'FOO';
 
 ### i18n
 
-This rule allows to call i18next translate function.
+This rule allows to call lang translate function.
 
 **Correct** code:
 
 ```js
-/*eslint i18next/no-literal-string: "error"*/
-var bar = i18next.t('bar');
+/*eslint lang/no-literal-string: "error"*/
+var bar = lang.t('bar');
 var bar2 = i18n.t('bar');
 ```
 
@@ -51,7 +51,7 @@ This rule also works with those state managers like
 **Correct** code:
 
 ```js
-/*eslint i18next/no-literal-string: "error"*/
+/*eslint lang/no-literal-string: "error"*/
 var bar = store.dispatch('bar');
 var bar2 = store.commit('bar');
 ```
@@ -66,7 +66,7 @@ literal strings that match one of regexp paterns.
 Examples of correct code for the `{ "ignore": ['foo'] }` option:
 
 ```js
-/*eslint i18next/no-literal-string: ["error", {"ignore": ["foo"]}]*/
+/*eslint lang/no-literal-string: ["error", {"ignore": ["foo"]}]*/
 const a = 'afoo';
 ```
 
@@ -78,7 +78,7 @@ function calls whose names match one of regexp patterns.
 Examples of correct code for the `{ "ignoreCallee": ["foo"] }` option:
 
 ```js
-/*eslint i18next/no-literal-string: ["error", { "ignoreCallee": ["foo"] }]*/
+/*eslint lang/no-literal-string: ["error", { "ignoreCallee": ["foo"] }]*/
 const bar = foo('bar');
 ```
 
