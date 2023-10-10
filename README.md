@@ -1,11 +1,11 @@
-# eslint-plugin-lang
+# eslint-plugin-lang2
 
 ESLint plugin for i18n
 
 ## Installation
 
 ```bash
-npm install eslint-plugin-lang --save-dev
+npm install eslint-plugin-lang2 --save-dev
 ```
 
 ## Usage
