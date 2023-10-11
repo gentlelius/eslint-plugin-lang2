@@ -1,6 +1,6 @@
 {
-  "name": "eslint-plugin-lang3",
-  "version": "0.0.1",
+  "name": "eslint-plugin-lang2",
+  "version": "0.0.6-beta.1",
   "description": "ESLint plugin for i18n.",
   "keywords": [
     "eslint",
